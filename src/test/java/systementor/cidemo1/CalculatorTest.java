@@ -41,7 +41,7 @@ class CalculatorTest {
         }
 
         int result = devideA / devideB;
-        assertEquals(2,result);
+        assertEquals(3,result);
 
     }
 
