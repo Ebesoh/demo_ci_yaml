@@ -26,7 +26,7 @@
 
 
       - name: Build with maven
-        run: mvn -b clean compile
+        run: mvn -B clean compile
 
    Test:
      name: Run test
@@ -34,4 +34,4 @@
 
      steps:
        - name: run test
-         run: mvn -b test
+         run: mvn -B test
