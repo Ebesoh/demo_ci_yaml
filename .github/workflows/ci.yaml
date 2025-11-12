@@ -30,8 +30,10 @@
 
    Test:
      name: Run test
+     needs: Build
      runs-on: ubuntu-latest
 
      steps:
+       - uses: actions/checkout@v4
        - name: run test
          run: mvn -B test
