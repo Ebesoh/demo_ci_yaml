@@ -10,7 +10,7 @@
 
  jobs:
    Build:
-     Name: Build Project
+     name: Build Project
      runs-on: ubuntu-latest
 
      steps:
