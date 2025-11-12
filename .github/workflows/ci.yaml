@@ -20,7 +20,10 @@
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: ''
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
 
       - name: Build with maven
         run: mvn -b clean compile
