@@ -37,3 +37,21 @@
        - uses: actions/checkout@v4
        - name: run test
          run: mvn -B test
+
+
+
+       # Collect test results (JUnit XML reports)
+       - name: Upload test reports
+         uses: actions/upload-artifact@v4
+         with:
+           name: test-results
+           path: target/surefire-reports/
+
+       # Optional: Show test summary in GitHub Actions UI
+       - name: Publish Test Results
+         uses: dorny/test-reporter@v1
+         if: always()   # ensures this runs even if tests fail
+         with:
+           name: Maven Tests
+           path: target/surefire-reports/*.xml
+           reporter: java-junit
