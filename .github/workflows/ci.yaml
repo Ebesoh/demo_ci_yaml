@@ -43,18 +43,11 @@
 
 
 
-       # Collect test results (JUnit XML reports)
-       - name: Upload test reports
+       - name: Generate HTML report
+         run: mvn surefire-report:report-only
+
+       - name: Upload HTML report
          uses: actions/upload-artifact@v4
          with:
-           name: test-results
-           path: target/surefire-reports/
-
-       # Optional: Show test summary in GitHub Actions UI
-       - name: Publish Test Results
-         uses: dorny/test-reporter@v1
-         if: always()   # ensures this runs even if tests fail
-         with:
-           name: Maven Tests
-           path: target/surefire-reports/*.xml
-           reporter: java-junit
+           name: html-test-report
+           path: target/site/surefire-report.html
